@@ -1,7 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "*/**", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" }
   ],
   "headers": [
     {
@@ -11,5 +11,10 @@
         { "key": "Cross-Origin-Opener-Policy",  "value": "same-origin" }
       ]
     }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*\\.(js|wasm|pck|html|css|png|jpg|jpeg|svg|ogg|mp3))", "dest": "/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
